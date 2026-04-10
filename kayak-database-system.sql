@@ -1,4 +1,4 @@
--- QUESTION 2
+
 -- Create tables
 
 CREATE TABLE kayaks (
@@ -88,12 +88,7 @@ SELECT grantee, privilege
 FROM dba_sys_privs
 WHERE grantee IN ('TSHEPO', 'MYA', 'C##TSHEPO', 'C##MYA');
 
-/*
-Separation of duties is important because it improves security and reduces the risk
-of fraud or accidental damage to the database. Tshepo only has permission to read
-data, while Mya only has permission to insert data. This means no single user has
-full control over the data, which improves accountability and protects the system.
-*/
+
 
 SELECT
     ku.kayak_id,
@@ -156,17 +151,6 @@ BEGIN
 END;
 /
 
-/*
-Cursor type used: Explicit cursor.
-
-Reason 1:
-An explicit cursor is suitable because the query returns multiple rows and each row
-must be processed one at a time.
-
-Reason 2:
-It gives the programmer full control over OPEN, FETCH and CLOSE, making it easier
-to format the output using DBMS_OUTPUT.
-*/
 
 SELECT
     c.cust_fname || ' ' || c.cust_sname AS customer,
